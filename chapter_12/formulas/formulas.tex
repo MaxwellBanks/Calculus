@@ -1,0 +1,102 @@
+\documentclass{standalone}
+\usepackage{../styling/formulas}
+
+\begin{document}
+%------------ Distances & Angles ---------------
+\begin{tikzpicture}
+\node [formulabox] (box){%
+    \begin{minipage}{0.7\textwidth}
+        \begin{enumerate}
+            \item $\abs{P_1P_2} = \sqrt{(x_1-x_2)^2+(y_1-y_2)^2+(z_1-z_2)^2}$
+            \item $M=(\frac{x_1+x_2}{2},\frac{y_1+y_2}{2},\frac{z_1+z_2}{2})$
+            \item $d=\frac{\abs{\overrightarrow{PS} \times \fvec{v}}}{\abs{\fvec{v}}}$, $P \in \fvec{L}, \fvec{L} \parallel \fvec{v}$
+            \item $d=\lvert \overrightarrow{PS} \bdot \frac{\fvec{n}}{\abs{\fvec{n}}} \rvert$, $\fvec{n}$ is normal to plane at point $P$
+            \item $\theta = cos^{-1}(\frac{\fvec{u} \bdot \fvec{v}}{\abs{\fvec{u}} \abs{\fvec{v}}})$
+
+        \end{enumerate}
+    \end{minipage}
+};
+%------------ Distances & Angles Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Distances \& Angles};
+\end{tikzpicture}
+
+%------------ Vector Operations ---------------
+\begin{tikzpicture}
+\node [formulabox] (box){%
+    \begin{minipage}{0.7\textwidth}
+        \begin{enumerate}
+            \setcounter{enumi}{4}
+            \item $\abs{\fvec{v}} = \sqrt{v_1^2+v_2^2+v_3^2}$\\
+                $\abs{\fvec{v}} = \sqrt{(x_1-x_2)^2+(y_1-y_2)^2+(z_1-z_2)^2}$
+            \item $\fvec{u} + \fvec{v} = \langle u_1 + v_1, u_2 + v_2, u_3 + v_3 \rangle$
+            \item $k\fvec{u} = \langle ku_1, ku_2, ku_3 \rangle$
+            \item $\dotp{u}{v} = u_1v_1 + u_2v_2 + u_3v_3$ \\
+                $\dotp{u}{v} = \abs{\fvec{u}} \abs{\fvec{v}} cos \theta$
+            \item $proj_v\fvec{u} = (\frac{\dotp{u}{v}}{\abs{\fvec{v}}^2})\fvec{v} = (\frac{\dotp{u}{v}}{\abs{\fvec{v}}})\frac{\fvec{v}}{\abs{\fvec{v}}}$
+            \item $\abs{\fvec{u}}cos \theta = \frac{\dotp{u}{v}}{\abs{\fvec{v}}} = \fvec{u} \bdot \frac{\fvec{v}}{\abs{\fvec{v}}}$
+            \item $W=\dotp{F}{D}, \fvec{D}=\overrightarrow{PQ}$
+            \item $\xp{u}{v} = (\abs{\fvec{u}}\abs{\fvec{v}} sin \theta) \fvec{n}$
+        \end{enumerate}
+    \end{minipage}
+};
+%------------ Vector Operations Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Vector Operations};
+\end{tikzpicture}
+
+%------------ Properties ---------------
+\begin{tikzpicture}
+\node [formulabox] (box){%
+    \begin{minipage}{0.7\textwidth}
+        \textbf{Vector Algebra}
+        \begin{enumerate}
+            \item $\fvec{u} + \fvec{v} = \fvec{v} + \fvec{u}$
+            \item ($\fvec{u} + \fvec{v}) + \fvec{w} = \fvec{u} + (\fvec{v} + \fvec{w})$
+            \item $\fvec{u} + 0 = \fvec{u}$
+            \item $\fvec{u} + (- \fvec{u}) = 0$
+            \item $0\fvec{u} = 0$
+            \item $1\fvec{u} = \fvec{u}$
+            \item $a(b\fvec{u}) = (ab)\fvec{u}$
+            \item $a(\fvec{u} + \fvec{v}) = a\fvec{u} + a \fvec{v}$
+            \item $(a+b)\fvec{u} = a\fvec{u} + b\fvec{u}$
+        \end{enumerate}
+        \textbf{Dot Product}
+        \begin{enumerate}
+            \setcounter{enumi}{4}
+            \item $\fvec{u} \perp \fvec{v} \iff \dotp{u}{v} = 0$
+            \item $\dotp{u}{v} = \dotp{v}{u}$
+            \item $(c\fvec{u}) \bdot \fvec{v} = \fvec{u} \bdot (c\fvec{v}) = c(\dotp{u}{v})$
+            \item $\fvec{u} \bdot (\fvec{v} + \fvec{w}) = \dotp{u}{v} + \dotp{u}{w}$
+            \item $\dotp{u}{u} = \abs{\fvec{u}}^2$
+            \item $0 \bdot \fvec{u} = 0$
+        \end{enumerate}
+        \textbf{Cross Product}
+        \begin{enumerate}
+            \setcounter{enumi}{4}
+            \item $\fvec{u} \parallel \fvec{v} \iff \xp{u}{v} = 0$
+            \item $(r\fvec{u}) \times (s\fvec{v}) = (rs)(\xp{u}{v})$
+            \item $\fvec{u} \times (\fvec{v} + \fvec{w}) = \xp{u}{v} + \xp{u}{w}$
+            \item $\xp{v}{u} = -(\xp{u}{v})$
+            \item $(\fvec{v} + \fvec{w}) \times \fvec{u} = \xp{v}{u} + \xp{w}{u}$
+            \item $0 \times \fvec{u} = 0$
+            \item $\fvec{u} \times (\xp{v}{w}) = (\dotp{u}{w})\fvec{v} - (\dotp{u}{v})\fvec{w}$
+        \end{enumerate}
+    \end{minipage}
+};
+%------------ Properties Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Properties};
+\end{tikzpicture}
+
+%------------ Notes ---------------
+\begin{tikzpicture}
+\node [formulabox] (box){%
+    \begin{minipage}{0.7\textwidth}
+        \begin{itemize}
+            
+            \item $proj_v\fvec{u}$ is the projection of $\fvec{u}$ onto $\fvec{v}$
+        \end{itemize}
+    \end{minipage}
+};
+%------------ Rules Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Notes};
+\end{tikzpicture}
+\end{document}

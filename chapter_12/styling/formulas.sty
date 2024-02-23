@@ -1,0 +1,27 @@
+\ProvidesPackage{formulas}[2/22/2024 v1.0 formula styling]
+\usepackage{amsmath,amssymb}
+%\usepackage{amsmath}
+\usepackage{tikz}
+
+%\usepackage{url}
+%\usepackage{multicol}
+%\usepackage{esint}
+%\usepackage{amsfonts}
+%\usetikzlibrary{decorations.pathmorphing}
+%\usepackage{amsmath,amssymb}
+
+%\usepackage{colortbl}
+%\usepackage{xcolor}
+%\usepackage{mathtools}
+%\usepackage{enumitem}
+
+\newcommand\fvec[1]{\vec{\textbf{#1}}}
+\newcommand\bdot{\boldsymbol{\cdot}}
+\newcommand\dotp[2]{\fvec{#1} \bdot \fvec{#2}}
+\newcommand\abs[1]{\lvert #1 \rvert}
+\newcommand\xp[2]{\fvec{#1} \times \fvec{#2}}
+
+\tikzstyle{formulabox} = [draw=black, fill=white, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+
+\tikzstyle{fancytitle} =[fill=black, text=white, font=\bfseries]
