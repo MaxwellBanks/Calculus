@@ -12,7 +12,6 @@
             \item $d=\frac{\abs{\overrightarrow{PS} \times \fvec{v}}}{\abs{\fvec{v}}}$, $P \in \fvec{L}, \fvec{L} \parallel \fvec{v}$
             \item $d=\lvert \overrightarrow{PS} \bdot \frac{\fvec{n}}{\abs{\fvec{n}}} \rvert$, $\fvec{n}$ is normal to plane at point $P$
             \item $\theta = cos^{-1}(\frac{\fvec{u} \bdot \fvec{v}}{\abs{\fvec{u}} \abs{\fvec{v}}})$
-
         \end{enumerate}
     \end{minipage}
 };
@@ -23,7 +22,7 @@
 %------------ Vector Operations ---------------
 \begin{tikzpicture}
 \node [formulabox] (box){%
-    \begin{minipage}{0.7\textwidth}
+    \begin{minipage}{0.8\textwidth}
         \begin{enumerate}
             \setcounter{enumi}{4}
             \item $\abs{\fvec{v}} = \sqrt{v_1^2+v_2^2+v_3^2}$\\
@@ -34,8 +33,12 @@
                 $\dotp{u}{v} = \abs{\fvec{u}} \abs{\fvec{v}} cos \theta$
             \item $proj_v\fvec{u} = (\frac{\dotp{u}{v}}{\abs{\fvec{v}}^2})\fvec{v} = (\frac{\dotp{u}{v}}{\abs{\fvec{v}}})\frac{\fvec{v}}{\abs{\fvec{v}}}$
             \item $\abs{\fvec{u}}cos \theta = \frac{\dotp{u}{v}}{\abs{\fvec{v}}} = \fvec{u} \bdot \frac{\fvec{v}}{\abs{\fvec{v}}}$
-            \item $W=\dotp{F}{D}, \fvec{D}=\overrightarrow{PQ}$
-            \item $\xp{u}{v} = (\abs{\fvec{u}}\abs{\fvec{v}} sin \theta) \fvec{n}$
+            \item $\xp{u}{v} = (\abs{\fvec{u}}\abs{\fvec{v}} sin \theta) \uv{n}$ \\
+                $\xp{u}{v} = (u_2v_3-u_3v_2)\iv - (u_1v_3-u_3v_1)\jv + (u_1v_2-u_2v_1)\kv$ \\
+                $\xp{u}{v} = \threemat{\iv}{\jv}{\kv}{u_1}{u_2}{u_3}{v_1}{v_2}{v_3}$
+            \item $\abs{\xp{u}{v}} = \abs{\fvec{u}}\abs{\fvec{v}} sin \theta = A$ \\
+                $A$ is area of the parallelogram defined by $\fvec{u}$ and $\fvec{v}$\\
+                $\frac{A}{2}$ is area of triangle defined by $\fvec{u}$ and $\fvec{v}$
         \end{enumerate}
     \end{minipage}
 };
@@ -59,6 +62,20 @@
             \item $a(\fvec{u} + \fvec{v}) = a\fvec{u} + a \fvec{v}$
             \item $(a+b)\fvec{u} = a\fvec{u} + b\fvec{u}$
         \end{enumerate}
+        \textbf{Unit Vectors}
+        \begin{enumerate}
+            \item $\abs{\uv{v}} = 1$
+            \item $\iv = \langle 1,0,0 \rangle, \jv = \langle 0,1,0 \rangle, \kv = \langle 0,0,1 \rangle$
+            \item $\fvec{u} = u_1\iv + u_2\jv +u_3\kv$
+            \item $\frac{\fvec{v}}{\abs{\fvec{v}}}, \fvec{v} \neq 0$ is \textit{direction} of $\fvec{v}$
+            \item $\abs{\frac{\fvec{v}}{\abs{\fvec{v}}}} = 1, \fvec{v} \neq 0$
+            \item $\fvec{v} = \abs{\fvec{v}}\frac{\fvec{v}}{\abs{\fvec{v}}}, \fvec{v} \neq 0$
+            \item $\dotp{i}{j} = \dotp{j}{k} = \dotp{i}{k} = 0$
+            \item $\iv \times \iv = \jv \times \jv = \kv \times \kv = 0$
+            \item $\iv \times \jv = -(\jv \times \iv) = \kv$
+            \item $\jv \times \kv = -(\kv \times \jv) = \iv$
+            \item $\kv \times \iv = -(\iv \times \kv) = \jv$
+        \end{enumerate}
         \textbf{Dot Product}
         \begin{enumerate}
             \setcounter{enumi}{4}
@@ -73,6 +90,7 @@
         \begin{enumerate}
             \setcounter{enumi}{4}
             \item $\fvec{u} \parallel \fvec{v} \iff \xp{u}{v} = 0$
+            \item $\overrightarrow{PQ} \times \overrightarrow{PR} \perp \mathcal{B}_{PQR}$ 
             \item $(r\fvec{u}) \times (s\fvec{v}) = (rs)(\xp{u}{v})$
             \item $\fvec{u} \times (\fvec{v} + \fvec{w}) = \xp{u}{v} + \xp{u}{w}$
             \item $\xp{v}{u} = -(\xp{u}{v})$
@@ -82,21 +100,67 @@
         \end{enumerate}
     \end{minipage}
 };
+
 %------------ Properties Header ---------------------
 \node[fancytitle, right=10pt] at (box.north west) {Properties};
 \end{tikzpicture}
+
+%------------ Determinant ---------------
+\begin{tikzpicture}
+\node [formulabox] (box){%
+    \begin{minipage}{0.9\textwidth}
+        \begin{enumerate}
+            \item $det \twomat{a}{b}{c}{d} = ad - bc$
+            \item $\mathbb{A} = \threemat{a_1}{a_2}{a_3}{b_1}{b_2}{b_3}{c_1}{c_2}{c_3}$\\
+                $det \mathbb{A} =
+                    a_1 \twomat{b_2}{b_3}{c_2}{c_3} -
+                    a_2 \twomat{b_1}{b_3}{c_1}{c_3} +
+                    a_3 \twomat{b_1}{b_2}{c_1}{c_2}$\\
+                $det \mathbb{A} = a_1(b_2c_3-b_3c_2) - a_2(b_1c_3-b_3c_1) + a_3(b_1c_2 - b_1c_2)$ \\
+                $det \mathbb{A} = a_1b_2c_3 + a_2b_3c_1 + a_3b_1c_2 - a_3b_2c_1 - a_2b_1c_3 - a_1b_3c_2$
+        \end{enumerate}
+    \end{minipage}
+};
+%------------ Determinant Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Determinant};
+\end{tikzpicture}
+
+
+%------------ Physics Applications ---------------
+\begin{tikzpicture}
+    \node [formulabox] (box){%
+        \begin{minipage}{0.9\textwidth}
+            \begin{enumerate}
+                \item $W=\dotp{F}{D}, \fvec{D}=\overrightarrow{PQ}$
+                \item $\abs{\fvec{T}} = \abs{\fvec{r}}\abs{\fvec{F}}sin \theta$\\
+                    $\fvec{T}$ is torque vector\\
+                    $\fvec{r}$ is length of lever arm\\
+                    $\fvec{F}$ is force applied to lever
+            \end{enumerate}
+        \end{minipage}
+    };
+    %------------ Physics Applications Header ---------------------
+    \node[fancytitle, right=10pt] at (box.north west) {Physics Applications};
+    \end{tikzpicture}
+
 
 %------------ Notes ---------------
 \begin{tikzpicture}
 \node [formulabox] (box){%
     \begin{minipage}{0.7\textwidth}
         \begin{itemize}
-            
+            \item Right hand rule: with thumb along positive $z$ axis, fingers curl from $x$ axis to $y$ axis
+            \item Any vector of length 1 is a unit vector, but $\iv,\jv,\kv$ are standard
             \item $proj_v\fvec{u}$ is the projection of $\fvec{u}$ onto $\fvec{v}$
+            \item $\fvec{v}$: vector
+            \item $\overrightarrow{PQ}$: line from $P$ to $Q$
+            \item $\uv{n}$: unit vector with direction $n$
+            \item $\mathcal{B}, \mathcal{B}_{PQR}$: Arbitrary plane, plane containing points $P$, $Q$, and $R$
+            \item $\mathbb{A}$: matrix
         \end{itemize}
     \end{minipage}
 };
-%------------ Rules Header ---------------------
+%------------ Notes Header ---------------------
 \node[fancytitle, right=10pt] at (box.north west) {Notes};
 \end{tikzpicture}
 \end{document}
